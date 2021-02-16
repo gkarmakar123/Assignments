@@ -38,7 +38,7 @@ class PinnedCollectionCell: UICollectionViewCell {
         let theSenderNameLabel = UILabel()
         theSenderNameLabel.translatesAutoresizingMaskIntoConstraints = false
         theSenderNameLabel.textColor = .systemGray
-        theSenderNameLabel.font = UIFont.boldSystemFont(ofSize: 16.0)
+        theSenderNameLabel.font = Constants.PinnedCell.senderNameFont
 
         return theSenderNameLabel
     }()
@@ -133,6 +133,5 @@ extension PinnedCollectionCell {
         senderNameLabel.text = messageModel.senderName
         
         unPinButton.isHidden = !messageModel.inEditMode
-        
     }
 }

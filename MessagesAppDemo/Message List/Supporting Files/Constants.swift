@@ -26,6 +26,7 @@ struct Constants {
         static let groupTrailingEdge: CGFloat = 15.0
         static let groupTopEdge: CGFloat = 0.0
         static let groupBottomEdge: CGFloat = 0.0
+        static let senderNameFont = UIFont.boldSystemFont(ofSize: 16.0)
 
 //        static let senderImageDiameter: CGFloat = 135.0
 
@@ -64,8 +65,12 @@ struct Constants {
     
     //MARK:- For UnPinned Cell
     struct UnPinnedCell {
-        static let senderImageDiameter: CGFloat = 70.0
+        static let senderImageDiameter: CGFloat = 50.0
         
+        static let senderNameFont = UIFont.boldSystemFont(ofSize: 22.0)
+        static let lastMessageFont = UIFont.systemFont(ofSize: 20.0)
+        static let messageDateFont = UIFont.systemFont(ofSize: 18.0)
+
     }
     
     //MARK:- Common For Both Cells

@@ -11,7 +11,7 @@ protocol UnPinnedCollectionCellDelegate {
     func pinButtonTapped(for unPinnedCell: UnPinnedCollectionCell)
 }
 
-class UnPinnedCollectionCell: UICollectionViewCell {//UICollectionViewListCell {
+class UnPinnedCollectionCell: UICollectionViewListCell {//UICollectionViewListCell {
     static let reuseIdentifier = "UnPinnedCollectionCell"
     
     var delegate: UnPinnedCollectionCellDelegate?
@@ -38,8 +38,8 @@ class UnPinnedCollectionCell: UICollectionViewCell {//UICollectionViewListCell {
         let theSenderNameLabel = UILabel()
         theSenderNameLabel.translatesAutoresizingMaskIntoConstraints = false
         theSenderNameLabel.textColor = .black
-        theSenderNameLabel.font = UIFont.boldSystemFont(ofSize: 24.0)
-
+        theSenderNameLabel.font = Constants.UnPinnedCell.senderNameFont
+        theSenderNameLabel.setContentCompressionResistancePriority(.defaultHigh + 1, for: .vertical)
         return theSenderNameLabel
     }()
 
@@ -47,7 +47,7 @@ class UnPinnedCollectionCell: UICollectionViewCell {//UICollectionViewListCell {
         let theLastMessageLabel = UILabel()
         theLastMessageLabel.translatesAutoresizingMaskIntoConstraints = false
         theLastMessageLabel.textColor = .systemGray
-        theLastMessageLabel.font = UIFont.systemFont(ofSize: 20.0)
+        theLastMessageLabel.font = Constants.UnPinnedCell.lastMessageFont
         theLastMessageLabel.numberOfLines = 2
         theLastMessageLabel.lineBreakMode = .byTruncatingTail
         
@@ -58,7 +58,7 @@ class UnPinnedCollectionCell: UICollectionViewCell {//UICollectionViewListCell {
         let theMessageDateLabel = UILabel()
         theMessageDateLabel.translatesAutoresizingMaskIntoConstraints = false
         theMessageDateLabel.textColor = .systemGray
-        theMessageDateLabel.font = UIFont.systemFont(ofSize: 18.0)
+        theMessageDateLabel.font = Constants.UnPinnedCell.messageDateFont
         theMessageDateLabel.setContentCompressionResistancePriority((.defaultHigh + 1), for: .horizontal)
         theMessageDateLabel.setContentHuggingPriority((.defaultHigh + 1), for: .horizontal)
         
@@ -71,14 +71,6 @@ class UnPinnedCollectionCell: UICollectionViewCell {//UICollectionViewListCell {
         theArrowImageView.image = #imageLiteral(resourceName: "arrow").withTintColor(.systemGray)
         
         return theArrowImageView
-    }()
-
-    private lazy var separatorView: UIView = {
-       let theSeparatorView = UIView()
-        theSeparatorView.backgroundColor = .lightGray
-        theSeparatorView.translatesAutoresizingMaskIntoConstraints = false
-        
-        return theSeparatorView
     }()
 
     private lazy var pinButton: UIButton = {
@@ -120,12 +112,13 @@ extension UnPinnedCollectionCell {
         addSubview(lastMessageLabel)
         addSubview(messageDateLabel)
         addSubview(arrowImageView)
-        addSubview(separatorView)
         addSubview(pinButton)
+        //self.accessories = [.disclosureIndicator()]
     }
-    
+       
     private func setupConstraints() {
-        
+        separatorLayoutGuide.leadingAnchor.constraint(equalTo: senderNameLabel.leadingAnchor).isActive = true
+
         NSLayoutConstraint.activate([
             unreadStatusDot.widthAnchor.constraint(
                 equalToConstant: Constants.unreadDotImageDiameter),
@@ -146,6 +139,7 @@ extension UnPinnedCollectionCell {
             senderImageView.leadingAnchor.constraint(
                 equalTo: unreadStatusDot.trailingAnchor,
                 constant: 10.0),
+            self.bottomAnchor.constraint(greaterThanOrEqualTo: senderImageView.bottomAnchor, constant: 10.0),
             
             senderNameLabel.topAnchor.constraint(
                 equalTo: self.topAnchor,
@@ -164,6 +158,8 @@ extension UnPinnedCollectionCell {
                 equalTo: senderNameLabel.leadingAnchor),
             lastMessageLabel.trailingAnchor.constraint(
                 equalTo: arrowImageView.trailingAnchor),
+//            lastMessageLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20.0),
+            self.bottomAnchor.constraint(equalTo: lastMessageLabel.bottomAnchor, constant: 10.0),
             
             messageDateLabel.centerYAnchor.constraint(
                 equalTo: senderNameLabel.centerYAnchor),
@@ -180,15 +176,6 @@ extension UnPinnedCollectionCell {
                 equalToConstant: CGFloat(16.0)),
             arrowImageView.widthAnchor.constraint(
                 equalTo: arrowImageView.heightAnchor, multiplier: 0.625),
-            
-            separatorView.heightAnchor.constraint(
-                equalToConstant: CGFloat(0.5)),
-            separatorView.leadingAnchor.constraint(
-                equalTo: senderNameLabel.leadingAnchor),
-            separatorView.trailingAnchor.constraint(
-                equalTo: self.trailingAnchor),
-            separatorView.bottomAnchor.constraint(
-                equalTo: self.bottomAnchor),
             
             pinButton.heightAnchor.constraint(equalToConstant: 20.0),
             pinButton.widthAnchor.constraint(equalToConstant: 20.0),
@@ -223,10 +210,12 @@ extension UnPinnedCollectionCell {
         if messageModel.inEditMode == false {
             messageDateLabel.isHidden = false
             arrowImageView.isHidden = false
+            pinButton.isHidden = true
             pinButtonTrailingConstraint.constant = 50.0
         } else {
             self.messageDateLabel.isHidden = true
             self.arrowImageView.isHidden = true
+            pinButton.isHidden = false
             pinButtonTrailingConstraint.constant = -20.0
         }
     }
