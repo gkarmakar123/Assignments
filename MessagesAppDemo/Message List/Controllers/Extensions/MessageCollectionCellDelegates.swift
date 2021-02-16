@@ -5,9 +5,11 @@
 //  Created by Gaurav Priya on 16/02/21.
 //
 
-import Foundation
+import UIKit
 
-extension MessagesViewController: UnPinnedCollectionCellDelegate, PinnedCollectionCellDelegate {
+extension MessagesViewController:
+    UnPinnedCollectionCellDelegate, PinnedCollectionCellDelegate {
+    
     func pinButtonTapped(for unPinnedCell: UnPinnedCollectionCell) {
         let tappedIndexPath = collectionView.indexPath(for: unPinnedCell)
         togglePinStateForMessage(for: tappedIndexPath!)

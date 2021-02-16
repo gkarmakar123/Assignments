@@ -34,7 +34,7 @@ class MessagesViewController: UIViewController {
     var collectionViewDataSource: UICollectionViewDiffableDataSource<CollectionCellType, MessageModel>! = nil
     
     //Data Model Objects
-    private var originalMessageModels: MessageModels! {
+    var originalMessageModels: MessageModels! {
         didSet {
             if modifiedMessageModels == nil || modifiedMessageModels.count == 0 {
                 modifiedMessageModels = originalMessageModels.messageListData
