@@ -11,7 +11,7 @@ protocol UnPinnedCollectionCellDelegate {
     func pinButtonTapped(for unPinnedCell: UnPinnedCollectionCell)
 }
 
-class UnPinnedCollectionCell: UICollectionViewListCell {//UICollectionViewListCell {
+class UnPinnedCollectionCell: UICollectionViewListCell {
     static let reuseIdentifier = "UnPinnedCollectionCell"
     
     var delegate: UnPinnedCollectionCellDelegate?
@@ -106,14 +106,13 @@ class UnPinnedCollectionCell: UICollectionViewListCell {//UICollectionViewListCe
 extension UnPinnedCollectionCell {
     
     private func setupUI() {
-        addSubview(unreadStatusDot)
-        addSubview(senderImageView)
-        addSubview(senderNameLabel)
-        addSubview(lastMessageLabel)
-        addSubview(messageDateLabel)
-        addSubview(arrowImageView)
-        addSubview(pinButton)
-        //self.accessories = [.disclosureIndicator()]
+        contentView.addSubview(unreadStatusDot)
+        contentView.addSubview(senderImageView)
+        contentView.addSubview(senderNameLabel)
+        contentView.addSubview(lastMessageLabel)
+        contentView.addSubview(messageDateLabel)
+        contentView.addSubview(arrowImageView)
+        contentView.addSubview(pinButton)
     }
        
     private func setupConstraints() {
@@ -125,24 +124,20 @@ extension UnPinnedCollectionCell {
             unreadStatusDot.heightAnchor.constraint(
                 equalTo: unreadStatusDot.widthAnchor),
             unreadStatusDot.centerYAnchor.constraint(
-                equalTo: self.centerYAnchor),
-            unreadStatusDot.leadingAnchor.constraint(
-                equalTo: self.leadingAnchor,
-                constant: 10.0),
+                equalTo: contentView.centerYAnchor),
             
             senderImageView.widthAnchor.constraint(
                 equalToConstant: Constants.UnPinnedCell.senderImageDiameter),
             senderImageView.heightAnchor.constraint(
                 equalTo: senderImageView.widthAnchor),
             senderImageView.centerYAnchor.constraint(
-                equalTo: self.centerYAnchor),
+                equalTo: contentView.centerYAnchor),
             senderImageView.leadingAnchor.constraint(
                 equalTo: unreadStatusDot.trailingAnchor,
                 constant: 10.0),
-            self.bottomAnchor.constraint(greaterThanOrEqualTo: senderImageView.bottomAnchor, constant: 10.0),
             
             senderNameLabel.topAnchor.constraint(
-                equalTo: self.topAnchor,
+                equalTo: contentView.topAnchor,
                 constant: 10.0),
             senderNameLabel.leadingAnchor.constraint(
                 equalTo: senderImageView.trailingAnchor,
@@ -158,8 +153,6 @@ extension UnPinnedCollectionCell {
                 equalTo: senderNameLabel.leadingAnchor),
             lastMessageLabel.trailingAnchor.constraint(
                 equalTo: arrowImageView.trailingAnchor),
-//            lastMessageLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20.0),
-            self.bottomAnchor.constraint(equalTo: lastMessageLabel.bottomAnchor, constant: 10.0),
             
             messageDateLabel.centerYAnchor.constraint(
                 equalTo: senderNameLabel.centerYAnchor),
@@ -168,7 +161,7 @@ extension UnPinnedCollectionCell {
                 constant: -20.0),
 
             arrowImageView.trailingAnchor.constraint(
-                equalTo: self.trailingAnchor,
+                equalTo: contentView.trailingAnchor,
                 constant: -20.0),
             arrowImageView.centerYAnchor.constraint(
                 equalTo: messageDateLabel.centerYAnchor),
@@ -179,10 +172,26 @@ extension UnPinnedCollectionCell {
             
             pinButton.heightAnchor.constraint(equalToConstant: 20.0),
             pinButton.widthAnchor.constraint(equalToConstant: 20.0),
-            pinButton.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            pinButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
         ])
         
-        pinButtonTrailingConstraint = pinButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 50.0)
+        let leadingConstraint = unreadStatusDot.leadingAnchor.constraint(
+            equalTo: contentView.leadingAnchor,
+            constant: 10.0)
+        leadingConstraint.isActive = true
+        leadingConstraint.priority = UILayoutPriority(rawValue: 999)
+        
+        let contentViewBottomConstraintToMsgLabel = contentView.bottomAnchor.constraint(equalTo: lastMessageLabel.bottomAnchor, constant: 10.0)
+        contentViewBottomConstraintToMsgLabel.isActive = true
+        contentViewBottomConstraintToMsgLabel.priority = UILayoutPriority(rawValue: 999)
+        
+        let contentViewBottomConstraintToSenderImage = contentView.bottomAnchor.constraint(greaterThanOrEqualTo: senderImageView.bottomAnchor, constant: 10.0)
+        
+        contentViewBottomConstraintToSenderImage.isActive = true
+        contentViewBottomConstraintToSenderImage.priority = UILayoutPriority(rawValue: 999)
+        
+        
+        pinButtonTrailingConstraint = pinButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 50.0)
         pinButtonTrailingConstraint.isActive = true
     }
     

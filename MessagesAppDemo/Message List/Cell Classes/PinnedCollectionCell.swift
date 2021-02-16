@@ -133,5 +133,17 @@ extension PinnedCollectionCell {
         senderNameLabel.text = messageModel.senderName
         
         unPinButton.isHidden = !messageModel.inEditMode
+        
+        if messageModel.inEditMode {
+            let transformAnim  = CAKeyframeAnimation(keyPath:"transform")
+            transformAnim.values  = [
+                NSValue(caTransform3D: CATransform3DMakeRotation(0.03, 0.0, 0.0, 1.0)),
+                NSValue(caTransform3D: CATransform3DMakeRotation(-0.03 , 0.0, 0.0, 1.0))
+            ]
+            transformAnim.autoreverses = true
+            transformAnim.duration  = 0.215
+            transformAnim.repeatCount = Float.infinity
+            self.layer.add(transformAnim, forKey: "transform")
+        }
     }
 }

@@ -22,18 +22,8 @@ extension MessagesViewController:
     
     func togglePinStateForMessage(for selectedIndexPath: IndexPath) {
         
-        var tappedMessageID: Int!
+        let tappedMessageID: Int! = fetchMessageModel(for: selectedIndexPath)!.messageID
         
-        switch selectedIndexPath.section {
-        
-        case 0:
-            tappedMessageID = pinnedMessageModels[selectedIndexPath.row].messageID
-        case 1:
-            tappedMessageID = unPinnedMessageModels[selectedIndexPath.row].messageID
-        default:
-            print("Not possible condition reached")
-            
-        }
         for i in 0..<mainMessageModel.messageModels.count {
             if mainMessageModel.messageModels[i].messageID == tappedMessageID {
                 

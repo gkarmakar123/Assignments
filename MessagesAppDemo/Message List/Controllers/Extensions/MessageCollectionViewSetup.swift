@@ -46,6 +46,10 @@ extension MessagesViewController {
         
         theCollectionView.translatesAutoresizingMaskIntoConstraints = false
         theCollectionView.backgroundColor = .white
+//        theCollectionView.dragDelegate = self
+        theCollectionView.delegate = self
+        theCollectionView.dragInteractionEnabled = true
+        
         theCollectionView.register(
             PinnedCollectionCell.self,
             forCellWithReuseIdentifier: PinnedCollectionCell.reuseIdentifier
@@ -114,14 +118,37 @@ extension MessagesViewController {
                 
                 completion(true)
                 
-                let filteredIndices = mainMessageModel.messageModels.indices.filter{mainMessageModel.messageModels[$0] == item}
-                mainMessageModel.messageModels.remove(at: filteredIndices[0])
+                mainMessageModel.messageModels.remove(at: getIndex(for: item))
                 reloadCollectionView()
             })
             deleteAction.image = UIImage(systemName: "trash")
             deleteAction.backgroundColor = .red
             
             return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
+    
+    //MARK:- Utility methods
+    
+    func fetchMessageModel(for selectedIndexPath: IndexPath) -> MessageModel? {
+        var selectedMessageModel: MessageModel?
+        
+        switch selectedIndexPath.section {
+        
+        case 0:
+            selectedMessageModel = pinnedMessageModels[selectedIndexPath.row]
+        case 1:
+            selectedMessageModel = unPinnedMessageModels[selectedIndexPath.row]
+        default:
+            print("Not possible condition reached")
+        }
+
+        return selectedMessageModel
+    }
+    
+    func getIndex(for messageModel: MessageModel) -> Int {
+        let filteredIndices = mainMessageModel.messageModels.indices.filter{mainMessageModel.messageModels[$0] == messageModel}
+        
+        return filteredIndices[0]
     }
     
     func reloadCollectionView() {
