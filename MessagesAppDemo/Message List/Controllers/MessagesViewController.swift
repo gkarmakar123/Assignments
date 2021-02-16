@@ -56,7 +56,7 @@ class MessagesViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        collectionView.collectionViewLayout.invalidateLayout()
+//        collectionView.collectionViewLayout.invalidateLayout()
     }
     
     //MARK:- Setup
@@ -112,34 +112,6 @@ class MessagesViewController: UIViewController {
             }
         } catch {
             print(error)
-        }
-    }
-    
-    func configureLongPressGesture() {
-        longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.longPress(_:)))
-        collectionView.addGestureRecognizer(longPressGesture)
-    }
-}
-
-//MARK:- Added Targets
-extension MessagesViewController {
-    @objc func longPress(_ gestureRecognizer: UIGestureRecognizer) {
-        switch gestureRecognizer.state {
-        //
-        ////        case .began:
-        ////            <#code#>
-        ////        case .changed:
-        ////            <#code#>
-        case .ended:
-            guard let selectedIndexPath = collectionView.indexPathForItem(at: gestureRecognizer.location(in: collectionView))
-            else {
-                return
-            }
-            
-            togglePinStateForMessage(for: selectedIndexPath)
-
-        default:
-            print("")
         }
     }
 }

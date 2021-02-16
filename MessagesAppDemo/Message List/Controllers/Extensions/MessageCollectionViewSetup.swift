@@ -195,4 +195,11 @@ extension MessagesViewController {
         collectionViewDataSource.apply(newSnapshot, animatingDifferences: true)
         collectionView.reloadData()
     }
+    
+    //MARK:- Long Press Gesture And Handling
+    func configureLongPressGesture() {
+        longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.longPress(_:)))
+        collectionView.addGestureRecognizer(longPressGesture)
+    }
+
 }

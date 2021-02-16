@@ -7,6 +7,7 @@
 
 import Foundation
 
+//MARK:- Main Message Model
 struct MessageMainModel: Codable {
     var messageModels: [MessageModel]!
     var messageModelsBackup: [MessageModel]!
@@ -27,11 +28,7 @@ extension MessageMainModel {
 }
 
 //MARK:- Individual Message Model
-struct MessageModel: Codable, Hashable {
-    static func == (lhs: MessageModel, rhs: MessageModel) -> Bool {
-        return lhs.messageID == rhs.messageID
-    }
-    
+struct MessageModel: Codable {
     var messageID: Int
     var senderImageURL: String
     var senderName: String
@@ -40,9 +37,15 @@ struct MessageModel: Codable, Hashable {
     var lastMessageDate: String
     var isPinned = false
     var inEditMode = false
-    
+}
+
+extension MessageModel: Hashable, Equatable {
     func hash(into hasher: inout Hasher) {
         hasher.combine(messageID)
+    }
+    
+    static func == (lhs: MessageModel, rhs: MessageModel) -> Bool {
+        return lhs.messageID == rhs.messageID
     }
 }
 
@@ -56,4 +59,3 @@ extension MessageModel {
         case lastMessageDate
     }
 }
-

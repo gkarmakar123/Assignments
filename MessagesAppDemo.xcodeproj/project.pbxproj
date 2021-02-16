@@ -24,6 +24,7 @@
 		E7CE851725DBF27E0056D6D1 /* MessageCollectionCellDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE851625DBF27E0056D6D1 /* MessageCollectionCellDelegates.swift */; };
 		E7CE851C25DBF28B0056D6D1 /* MessageCollectionViewDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE851B25DBF28B0056D6D1 /* MessageCollectionViewDelegates.swift */; };
 		E7CE852425DBF8CD0056D6D1 /* MessageTopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE852325DBF8CD0056D6D1 /* MessageTopBar.swift */; };
+		E7CE852C25DC02120056D6D1 /* MessageTargets.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE852B25DC02120056D6D1 /* MessageTargets.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		E7CE851625DBF27E0056D6D1 /* MessageCollectionCellDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCollectionCellDelegates.swift; sourceTree = "<group>"; };
 		E7CE851B25DBF28B0056D6D1 /* MessageCollectionViewDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCollectionViewDelegates.swift; sourceTree = "<group>"; };
 		E7CE852325DBF8CD0056D6D1 /* MessageTopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTopBar.swift; sourceTree = "<group>"; };
+		E7CE852B25DC02120056D6D1 /* MessageTargets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTargets.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +217,7 @@
 				E7CE850E25DBF0B60056D6D1 /* MessageCollectionViewSetup.swift */,
 				E7CE851B25DBF28B0056D6D1 /* MessageCollectionViewDelegates.swift */,
 				E7CE851625DBF27E0056D6D1 /* MessageCollectionCellDelegates.swift */,
+				E7CE852B25DC02120056D6D1 /* MessageTargets.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 				E7CE851725DBF27E0056D6D1 /* MessageCollectionCellDelegates.swift in Sources */,
 				E7CE851C25DBF28B0056D6D1 /* MessageCollectionViewDelegates.swift in Sources */,
 				E7CE84ED25D931170056D6D1 /* PinnedCollectionCell.swift in Sources */,
+				E7CE852C25DC02120056D6D1 /* MessageTargets.swift in Sources */,
 				E7CE84D025D85BC80056D6D1 /* MessagesViewController.swift in Sources */,
 				E7CE84BF25D85B780056D6D1 /* TopBarView.swift in Sources */,
 				E7CE850F25DBF0B60056D6D1 /* MessageCollectionViewSetup.swift in Sources */,

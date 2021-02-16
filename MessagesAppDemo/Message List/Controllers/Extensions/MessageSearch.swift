@@ -15,15 +15,14 @@ extension MessagesViewController: UISearchBarDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        mainMessageModel.messageModels = mainMessageModel.messageModelsBackup
+
         if searchText.count > 0  {
             let temporaryArray = mainMessageModel.messageModels.filter({$0.senderName.lowercased().range(of: searchText.lowercased()) != nil})
             mainMessageModel.messageModels = temporaryArray
-            reloadCollectionView()
-            
-        } else {
-            mainMessageModel.messageModels = mainMessageModel.messageModelsBackup
-            reloadCollectionView()
         }
+        
+        reloadCollectionView()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
