@@ -194,6 +194,8 @@ extension MessagesViewController {
             }
         }
         
+        collectionViewDataSource.reorderingHandlers.canReorderItem = {item in return true}
+        
         let snapshot = { () -> NSDiffableDataSourceSnapshot<CollectionCellType, MessageModel> in
             var snapshot = NSDiffableDataSourceSnapshot<CollectionCellType, MessageModel>()
             snapshot.appendSections([CollectionCellType.pinnedCell, CollectionCellType.unPinnedCell])

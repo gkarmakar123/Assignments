@@ -113,6 +113,8 @@ extension UnPinnedCollectionCell {
         contentView.addSubview(messageDateLabel)
         contentView.addSubview(arrowImageView)
         contentView.addSubview(pinButton)
+        
+        self.accessories = [.reorder()]
     }
        
     private func setupConstraints() {
