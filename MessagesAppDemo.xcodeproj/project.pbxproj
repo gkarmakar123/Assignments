@@ -19,6 +19,10 @@
 		E7CE84ED25D931170056D6D1 /* PinnedCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE84EC25D931170056D6D1 /* PinnedCollectionCell.swift */; };
 		E7CE84F625D960EE0056D6D1 /* Sample_Response.json in Resources */ = {isa = PBXBuildFile; fileRef = E7CE84F525D960EE0056D6D1 /* Sample_Response.json */; };
 		E7CE84FE25D96A7A0056D6D1 /* UnPinnedCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE84FD25D96A7A0056D6D1 /* UnPinnedCollectionCell.swift */; };
+		E7CE850725DBEFE00056D6D1 /* MessageSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE850625DBEFE00056D6D1 /* MessageSearch.swift */; };
+		E7CE850F25DBF0B60056D6D1 /* MessageCollectionViewSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE850E25DBF0B60056D6D1 /* MessageCollectionViewSetup.swift */; };
+		E7CE851725DBF27E0056D6D1 /* MessageCollectionCellDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE851625DBF27E0056D6D1 /* MessageCollectionCellDelegates.swift */; };
+		E7CE851C25DBF28B0056D6D1 /* MessageCollectionViewDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE851B25DBF28B0056D6D1 /* MessageCollectionViewDelegates.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +61,10 @@
 		E7CE84EC25D931170056D6D1 /* PinnedCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinnedCollectionCell.swift; sourceTree = "<group>"; };
 		E7CE84F525D960EE0056D6D1 /* Sample_Response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Sample_Response.json; sourceTree = "<group>"; };
 		E7CE84FD25D96A7A0056D6D1 /* UnPinnedCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnPinnedCollectionCell.swift; sourceTree = "<group>"; };
+		E7CE850625DBEFE00056D6D1 /* MessageSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageSearch.swift; sourceTree = "<group>"; };
+		E7CE850E25DBF0B60056D6D1 /* MessageCollectionViewSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCollectionViewSetup.swift; sourceTree = "<group>"; };
+		E7CE851625DBF27E0056D6D1 /* MessageCollectionCellDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCollectionCellDelegates.swift; sourceTree = "<group>"; };
+		E7CE851B25DBF28B0056D6D1 /* MessageCollectionViewDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCollectionViewDelegates.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				E7CE84CF25D85BC80056D6D1 /* MessagesViewController.swift */,
+				E7CE850525DBEFA50056D6D1 /* Extensions */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -194,6 +203,17 @@
 				E7CE84F525D960EE0056D6D1 /* Sample_Response.json */,
 			);
 			path = "Sample JSON";
+			sourceTree = "<group>";
+		};
+		E7CE850525DBEFA50056D6D1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E7CE850625DBEFE00056D6D1 /* MessageSearch.swift */,
+				E7CE850E25DBF0B60056D6D1 /* MessageCollectionViewSetup.swift */,
+				E7CE851B25DBF28B0056D6D1 /* MessageCollectionViewDelegates.swift */,
+				E7CE851625DBF27E0056D6D1 /* MessageCollectionCellDelegates.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -327,9 +347,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7CE84E725D928470056D6D1 /* Models.swift in Sources */,
+				E7CE850725DBEFE00056D6D1 /* MessageSearch.swift in Sources */,
+				E7CE851725DBF27E0056D6D1 /* MessageCollectionCellDelegates.swift in Sources */,
+				E7CE851C25DBF28B0056D6D1 /* MessageCollectionViewDelegates.swift in Sources */,
 				E7CE84ED25D931170056D6D1 /* PinnedCollectionCell.swift in Sources */,
 				E7CE84D025D85BC80056D6D1 /* MessagesViewController.swift in Sources */,
 				E7CE84BF25D85B780056D6D1 /* TopBarView.swift in Sources */,
+				E7CE850F25DBF0B60056D6D1 /* MessageCollectionViewSetup.swift in Sources */,
 				E7C76C0C25D6B7590040B45D /* AppDelegate.swift in Sources */,
 				E7CE84FE25D96A7A0056D6D1 /* UnPinnedCollectionCell.swift in Sources */,
 				E7CE84D625D923730056D6D1 /* Constants.swift in Sources */,
