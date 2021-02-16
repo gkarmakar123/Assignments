@@ -23,6 +23,7 @@
 		E7CE850F25DBF0B60056D6D1 /* MessageCollectionViewSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE850E25DBF0B60056D6D1 /* MessageCollectionViewSetup.swift */; };
 		E7CE851725DBF27E0056D6D1 /* MessageCollectionCellDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE851625DBF27E0056D6D1 /* MessageCollectionCellDelegates.swift */; };
 		E7CE851C25DBF28B0056D6D1 /* MessageCollectionViewDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE851B25DBF28B0056D6D1 /* MessageCollectionViewDelegates.swift */; };
+		E7CE852425DBF8CD0056D6D1 /* MessageTopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE852325DBF8CD0056D6D1 /* MessageTopBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		E7CE850E25DBF0B60056D6D1 /* MessageCollectionViewSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCollectionViewSetup.swift; sourceTree = "<group>"; };
 		E7CE851625DBF27E0056D6D1 /* MessageCollectionCellDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCollectionCellDelegates.swift; sourceTree = "<group>"; };
 		E7CE851B25DBF28B0056D6D1 /* MessageCollectionViewDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCollectionViewDelegates.swift; sourceTree = "<group>"; };
+		E7CE852325DBF8CD0056D6D1 /* MessageTopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTopBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +210,7 @@
 		E7CE850525DBEFA50056D6D1 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				E7CE852325DBF8CD0056D6D1 /* MessageTopBar.swift */,
 				E7CE850625DBEFE00056D6D1 /* MessageSearch.swift */,
 				E7CE850E25DBF0B60056D6D1 /* MessageCollectionViewSetup.swift */,
 				E7CE851B25DBF28B0056D6D1 /* MessageCollectionViewDelegates.swift */,
@@ -357,6 +360,7 @@
 				E7C76C0C25D6B7590040B45D /* AppDelegate.swift in Sources */,
 				E7CE84FE25D96A7A0056D6D1 /* UnPinnedCollectionCell.swift in Sources */,
 				E7CE84D625D923730056D6D1 /* Constants.swift in Sources */,
+				E7CE852425DBF8CD0056D6D1 /* MessageTopBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

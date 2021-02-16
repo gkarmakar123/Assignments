@@ -16,12 +16,12 @@ extension MessagesViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.count > 0  {
-            let temporaryArray = modifiedMessageModels.filter({$0.senderName.lowercased().range(of: searchText.lowercased()) != nil})
-            modifiedMessageModels = temporaryArray
+            let temporaryArray = mainMessageModel.messageModels.filter({$0.senderName.lowercased().range(of: searchText.lowercased()) != nil})
+            mainMessageModel.messageModels = temporaryArray
             reloadCollectionView()
             
         } else {
-            modifiedMessageModels = modifiedMessageModelBackup
+            mainMessageModel.messageModels = mainMessageModel.messageModelsBackup
             reloadCollectionView()
         }
     }
@@ -31,7 +31,7 @@ extension MessagesViewController: UISearchBarDelegate {
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        modifiedMessageModelBackup = modifiedMessageModels
+        mainMessageModel.messageModelsBackup = mainMessageModel.messageModels
         searchBar.enablesReturnKeyAutomatically = false
     }
     
@@ -39,8 +39,8 @@ extension MessagesViewController: UISearchBarDelegate {
         let searchText = searchBar.text ?? ""
         
         if searchText.isEmpty {
-            modifiedMessageModels = modifiedMessageModelBackup
-            modifiedMessageModelBackup = nil
+            mainMessageModel.messageModels = mainMessageModel.messageModelsBackup
+            mainMessageModel.messageModelsBackup = nil
             reloadCollectionView()
         }
     }

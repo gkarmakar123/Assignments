@@ -34,13 +34,13 @@ extension MessagesViewController:
             print("Not possible condition reached")
             
         }
-        for i in 0..<modifiedMessageModels.count {
-            if modifiedMessageModels[i].messageID == tappedMessageID {
+        for i in 0..<mainMessageModel.messageModels.count {
+            if mainMessageModel.messageModels[i].messageID == tappedMessageID {
                 
-                if modifiedMessageModels[i].isPinned == false {
-                    if originalMessageModels.totalPinnedMessages < 9 {
-                        originalMessageModels.totalPinnedMessages += 1 //as it means it is going to be oinned in next line
-                        modifiedMessageModels[i].isPinned = !modifiedMessageModels[i].isPinned
+                if mainMessageModel.messageModels[i].isPinned == false {
+                    if mainMessageModel.totalPinnedMessages < 9 {
+                        mainMessageModel.totalPinnedMessages += 1 //as it means it is going to be oinned in next line
+                        mainMessageModel.messageModels[i].isPinned = !mainMessageModel.messageModels[i].isPinned
                     } else {
                         let alert = UIAlertController(title: "Sorry!", message: "You can pin only up to 9 chats", preferredStyle: .alert)
                         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
@@ -50,8 +50,8 @@ extension MessagesViewController:
                         )
                     }
                 } else {
-                    originalMessageModels.totalPinnedMessages -= 1
-                    modifiedMessageModels[i].isPinned = !modifiedMessageModels[i].isPinned
+                    mainMessageModel.totalPinnedMessages -= 1
+                    mainMessageModel.messageModels[i].isPinned = !mainMessageModel.messageModels[i].isPinned
                 }
             }
         }

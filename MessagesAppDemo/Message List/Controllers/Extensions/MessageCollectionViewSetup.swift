@@ -14,6 +14,15 @@ extension MessagesViewController {
         case unPinnedCell
     }
 
+    //MARK:- Computed properties for collection view
+    var pinnedMessageModels: [MessageModel]! {
+        return mainMessageModel.messageModels.filter {$0.isPinned == true}
+    }
+    var unPinnedMessageModels: [MessageModel]! {
+        return mainMessageModel.messageModels.filter {$0.isPinned == false}
+    }
+
+    //MARK:-
     func createCollectionView() -> UICollectionView {
         
         let theCollectionView = UICollectionView(frame: .zero, collectionViewLayout: { () -> UICollectionViewLayout in
@@ -166,8 +175,8 @@ extension MessagesViewController {
                 
                 completion(true)
                 
-                let filteredIndices = modifiedMessageModels.indices.filter{modifiedMessageModels[$0] == item}
-                modifiedMessageModels.remove(at: filteredIndices[0])
+                let filteredIndices = mainMessageModel.messageModels.indices.filter{mainMessageModel.messageModels[$0] == item}
+                mainMessageModel.messageModels.remove(at: filteredIndices[0])
                 reloadCollectionView()
             })
             deleteAction.image = UIImage(systemName: "trash")

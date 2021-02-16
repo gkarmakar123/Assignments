@@ -7,26 +7,27 @@
 
 import Foundation
 
-class MessageModels: Codable {
-    var messageListData: [MessageModel]
+struct MessageMainModel: Codable {
+    var messageModels: [MessageModel]!
+    var messageModelsBackup: [MessageModel]!
     var totalPinnedMessages: Int = 0
     var allInEditMode:Bool = false {
         didSet {
-            for i in 0..<messageListData.count {
-                messageListData[i].inEditMode = allInEditMode
+            for i in 0..<messageModels.count {
+                messageModels[i].inEditMode = allInEditMode
             }
         }
     }
 }
 
-extension MessageModels {
-    enum CodingKeys: CodingKey {
-        case messageListData
+extension MessageMainModel {
+    enum CodingKeys: String, CodingKey {
+        case messageModels = "messageListData"
     }
 }
 
 //MARK:- Individual Message Model
-class MessageModel: Codable, Hashable {
+struct MessageModel: Codable, Hashable {
     static func == (lhs: MessageModel, rhs: MessageModel) -> Bool {
         return lhs.messageID == rhs.messageID
     }

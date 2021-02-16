@@ -14,6 +14,7 @@ class MessagesViewController: UIViewController {
         theTopBar.translatesAutoresizingMaskIntoConstraints = false
         theTopBar.backgroundColor = .white
         theTopBar.delegate = self
+        
         return theTopBar
     }()
     
@@ -24,31 +25,19 @@ class MessagesViewController: UIViewController {
         theSearchBar.delegate = self
         theSearchBar.backgroundImage = UIImage()
         theSearchBar.returnKeyType = .done
-//        theSearchBar.setImage(UIImage(named: "pen_icon"), for: .bookmark, state: .normal)
+
         return theSearchBar
     }()
     
-    //MARK: CollectionView Properties
+    //MARK:- CollectionView Properties
     var collectionView: UICollectionView!
     
     var collectionViewDataSource: UICollectionViewDiffableDataSource<CollectionCellType, MessageModel>! = nil
     
     //Data Model Objects
-    var originalMessageModels: MessageModels! {
-        didSet {
-            if modifiedMessageModels == nil || modifiedMessageModels.count == 0 {
-                modifiedMessageModels = originalMessageModels.messageListData
-            }
-        }
-    }
-    var modifiedMessageModels: [MessageModel]!
-    var modifiedMessageModelBackup: [MessageModel]!
-    var pinnedMessageModels: [MessageModel]! {
-        return modifiedMessageModels.filter {$0.isPinned == true}
-    }
-    var unPinnedMessageModels: [MessageModel]! {
-        return modifiedMessageModels.filter {$0.isPinned == false}
-    }
+    var mainMessageModel: MessageMainModel!
+    
+    var longPressGesture: UILongPressGestureRecognizer!
     
     //MARK:- View Life Cycles
     override func viewDidLoad() {
@@ -70,6 +59,7 @@ class MessagesViewController: UIViewController {
         collectionView.collectionViewLayout.invalidateLayout()
     }
     
+    //MARK:- Setup
     private func setupUI() {
         view.backgroundColor = .white
         navigationController?.navigationBar.isHidden = true
@@ -116,8 +106,8 @@ class MessagesViewController: UIViewController {
                 
                 let decoder = JSONDecoder()
                 
-                if let decodedData = try? decoder.decode(MessageModels.self, from: jsonData) {
-                    originalMessageModels = decodedData
+                if let decodedData = try? decoder.decode(MessageMainModel.self, from: jsonData) {
+                    mainMessageModel = decodedData
                 }
             }
         } catch {
@@ -125,7 +115,6 @@ class MessagesViewController: UIViewController {
         }
     }
     
-    var longPressGesture: UILongPressGestureRecognizer!
     func configureLongPressGesture() {
         longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.longPress(_:)))
         collectionView.addGestureRecognizer(longPressGesture)
@@ -153,18 +142,4 @@ extension MessagesViewController {
             print("")
         }
     }
-}
-
-//MARK:- TopBarView Delegate
-extension MessagesViewController: TopBarViewDelegate {
-    func editButtonTapped() {
-        originalMessageModels.allInEditMode = true
-        reloadCollectionView()
-    }
-    
-    func doneButtonTapped() {
-        originalMessageModels.allInEditMode = false
-        reloadCollectionView()
-    }
-    
 }
