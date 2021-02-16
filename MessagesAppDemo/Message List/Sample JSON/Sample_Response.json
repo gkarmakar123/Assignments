@@ -1,0 +1,84 @@
+{
+  "messageListData": [
+    {
+      "messageID": 1,
+      "senderImageURL": "https://media-exp1.licdn.com/dms/image/C5103AQFb-bFPx4_IEw/profile-displayphoto-shrink_200_200/0/1534256086517?e=1616630400&v=beta&t=EhP-Sk0luMr8PNeaJLFLOsNkeH2Sjbqky7XHB5WMN48",
+      "senderName": "Gaurav",
+      "lastMessage": "Hello how are you?",
+      "lastMessageUnread": false,
+      "lastMessageDate": "2/14/21"
+    },
+    {
+      "messageID": 2,
+      "senderImageURL": "",
+      "senderName": "Manoj",
+      "lastMessage": "There is a party tonight, come over",
+      "lastMessageUnread": true,
+      "lastMessageDate": "2/10/21"
+    },
+{
+      "messageID": 3,
+      "senderImageURL": "",
+      "senderName": "AR-AIRDOT",
+      "lastMessage": "Earn up to INR 30,000 every month",
+      "lastMessageUnread": true,
+      "lastMessageDate": "2/11/21"
+    },
+{
+      "messageID": 4,
+      "senderImageURL": "",
+      "senderName": "Suresh",
+      "lastMessage": "Your parcel is ready, please collect",
+      "lastMessageUnread": true,
+      "lastMessageDate": "2/14/21"
+    },
+{
+      "messageID": 5,
+      "senderImageURL": "",
+      "senderName": "Alok",
+      "lastMessage": "I have sent you the assignment",
+      "lastMessageUnread": true,
+      "lastMessageDate": "2/11/21"
+    },
+{
+      "messageID": 6,
+      "senderImageURL": "",
+      "senderName": "Infosys-CCD",
+      "lastMessage": "Your laptop has been dispatched",
+      "lastMessageUnread": false,
+      "lastMessageDate": "2/12/21"
+    },
+{
+      "messageID": 7,
+      "senderImageURL": "",
+      "senderName": "AD-News",
+      "lastMessage": "India takes lead in 2nd test",
+      "lastMessageUnread": true,
+      "lastMessageDate": "2/14/21"
+    },
+{
+      "messageID": 8,
+      "senderImageURL": "",
+      "senderName": "AX-PNBSMS",
+      "lastMessage": "XXXXXX amount has been debited from your account. Please take action if it was not done by you.",
+      "lastMessageUnread": false,
+      "lastMessageDate": "2/14/21"
+    },
+{
+      "messageID": 9,
+      "senderImageURL": "",
+      "senderName": "New Sender",
+      "lastMessage": "Congratulations! You have won a lottery of 2 Million. Send OTP",
+      "lastMessageUnread": true,
+      "lastMessageDate": "2/14/21"
+    },
+{
+      "messageID": 10,
+      "senderImageURL": "",
+      "senderName": "AR-345345",
+      "lastMessage": "Your prime membership has been extended.",
+      "lastMessageUnread": true,
+      "lastMessageDate": "2/14/21"
+    },
+  ]
+}

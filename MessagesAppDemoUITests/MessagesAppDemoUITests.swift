@@ -2,7 +2,7 @@
 //  MessagesAppDemoUITests.swift
 //  MessagesAppDemoUITests
 //
-//  Created by Gaurav Priya on 12/02/21.
+//  Created by Gaurav Karmakar on 12/02/21.
 //
 
 import XCTest
