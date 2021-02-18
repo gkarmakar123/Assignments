@@ -115,6 +115,8 @@ extension UnPinnedCollectionCell {
         contentView.addSubview(pinButton)
         
         self.accessories = [.reorder()]
+        
+        applyAccessibility()
     }
        
     private func setupConstraints() {
@@ -229,5 +231,19 @@ extension UnPinnedCollectionCell {
             pinButton.isHidden = false
             pinButtonTrailingConstraint.constant = -20.0
         }
+    }
+}
+
+//MARK:- Accessibility setup
+extension UnPinnedCollectionCell {
+    func applyAccessibility() {
+        senderNameLabel.font = .preferredFont(forTextStyle: .body)
+        senderNameLabel.adjustsFontForContentSizeCategory = true
+        
+        lastMessageLabel.font = .preferredFont(forTextStyle: .body)
+        lastMessageLabel.adjustsFontForContentSizeCategory = true
+        
+        messageDateLabel.font = .preferredFont(forTextStyle: .body)
+        messageDateLabel.adjustsFontForContentSizeCategory = true
     }
 }

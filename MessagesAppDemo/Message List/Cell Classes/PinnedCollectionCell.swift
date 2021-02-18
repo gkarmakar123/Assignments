@@ -78,6 +78,8 @@ extension PinnedCollectionCell {
         addSubview(senderImageView)
         addSubview(senderNameLabel)
         addSubview(unPinButton)
+        
+        applyAccessibility()
     }
     
     private func setupConstraints() {
@@ -145,5 +147,13 @@ extension PinnedCollectionCell {
             transformAnim.repeatCount = Float.infinity
             self.layer.add(transformAnim, forKey: "transform")
         }
+    }
+}
+
+//MARK:- Accessibility setup
+extension PinnedCollectionCell {
+    func applyAccessibility() {
+        senderNameLabel.font = .preferredFont(forTextStyle: .body)
+        senderNameLabel.adjustsFontForContentSizeCategory = true
     }
 }

@@ -66,6 +66,7 @@ final class TopBarView: UIView {
         super.init(frame: frame)
         setupSubviews()
         setupConstraints()
+        applyAccessibility()
     }
     
     required init?(coder: NSCoder) {
@@ -105,4 +106,15 @@ final class TopBarView: UIView {
     }
     */
 
+}
+
+//MARK:- Accessibility setup
+extension TopBarView {
+    func applyAccessibility() {
+        titleLabel.font = .preferredFont(forTextStyle: .body)
+        titleLabel.adjustsFontForContentSizeCategory = true
+
+        editButton.accessibilityLabel = "Edit Icon"
+        editButton.accessibilityHint = "Makes the complete list editable"
+    }
 }
